@@ -30,7 +30,7 @@ will meet your favour. I thought to mention them explicitly as they may clarify 
   object at the endpoint level and pass it down to the service for obfuscation -- which return a new message with the text obfuscated.
 
 - The specs do not explicitly request HTTP codes for failing, e.g. when a message is invalid (not all in upper cases). In the test I am
-  returing a few codes to handle those occasiona. Whereas not explicitly requested, I based my choices for HTTP return codes specs
+  returning a few codes to handle those occasiona. Whereas not explicitly requested, I based my choices for HTTP return codes specs
   on the description found in the HTTP specs -- hopefully they do make sense. Would be happy to elaborate further if some choices are
   ambiguous.
   Also, I am trying to return the right code for each possible occurrence, hence the finer-grained validations. In real life they may be
