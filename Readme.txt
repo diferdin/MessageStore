@@ -1,7 +1,7 @@
 Hi and thanks for taking the time to look at this. I'd be very much interested in your feedback.
 
-Some aspects of the application were not addressed in the specs, hence I took some assumptions, and made some choice, that hopefully
-make sense and meet your favour. I thought to mention them explicitly as they may clarify my choices in the application:
+In the course of development of the test I took some assumptions and made some choices that hopefully make sense and
+will meet your favour. I thought to mention them explicitly as they may clarify my choices in the application:
 
 - JSON in specs: the JSON examples in the specs miss the double quotes in the values. I have worked on the assumption of that being a typo,
   after all that JSON results not well-formed upon parsing.
