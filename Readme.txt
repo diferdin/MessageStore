@@ -1,4 +1,4 @@
-Hi and thanks for taking the time to look at this. I'd be very much interested in your feedback.
+Hi and thanks for taking the time to look at this.
 
 In the course of development of the test I took some assumptions and made some choices that hopefully make sense and
 will meet your favour. I thought to mention them explicitly as they may clarify my choices in the application:
@@ -38,3 +38,9 @@ will meet your favour. I thought to mention them explicitly as they may clarify 
 
 - Hyphenated URI in specs: I looked at URI patterns before doing this, and as a result of my research I decided to remove the hyphen from
   the URI. Not sure it was a typo.
+
+  I'd be very much interested in your feedback.
+
+  Regards,
+
+  Antonio.
