@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MessageDao {
-    List<Message> messages = null;
+    private List<Message> messages = null;
 
     public boolean addMessage(Message message) {
         if(messages == null) {

@@ -1,7 +1,6 @@
 package com.diferdin.tests.obfuscatedmessagestore.dao;
 
 
-import com.diferdin.tests.obfuscatedmessagestore.dao.UserDao;
 import com.diferdin.tests.obfuscatedmessagestore.domain.User;
 import org.junit.Before;
 import org.junit.Test;

@@ -5,7 +5,6 @@ import com.diferdin.tests.obfuscatedmessagestore.domain.Message;
 import com.diferdin.tests.obfuscatedmessagestore.domain.User;
 import com.diferdin.tests.obfuscatedmessagestore.service.MessageService;
 import com.diferdin.tests.obfuscatedmessagestore.service.UserService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,15 +18,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -157,14 +153,14 @@ public class MessageStoreEndpointTest {
     }
 
     @Test
-    public void shouldReturnEmptyListIfMessagesNotStored() throws Exception {
+    public void shouldReturnNoContentIfMessagesNotStored() throws Exception {
         doReturn(Collections.emptyList()).when(messageService).getAllMessagesForReceiverId("user2Id");
         doReturn(new User("Jason Bourne")).when(userService).getUser("user1Id");
         doReturn(new User("Lara Croft")).when(userService).getUser("user2Id");
 
         MvcResult getResult = mockMvc.perform(get("/messages/users/user2Id")
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
+                .andExpect(status().isNoContent())
                 .andReturn();
 
         String jsonMessageList = getResult.getResponse().getContentAsString();

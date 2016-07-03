@@ -49,11 +49,8 @@ public class UserDao {
 
     public boolean containsUser(String userId) {
 
-        if(users == null) {
-            return false;
-        }
+        return users != null && users.stream().anyMatch(u -> u.getUuid().equals(userId));
 
-        return users.stream().anyMatch(u -> u.getUuid().equals(userId));
     }
 
     public List<User> getAllUsers() {

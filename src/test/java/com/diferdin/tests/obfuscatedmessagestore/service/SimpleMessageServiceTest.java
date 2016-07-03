@@ -13,7 +13,6 @@ import org.mockito.Spy;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertFalse;
 import static org.mockito.Mockito.doReturn;
 
 import static junit.framework.TestCase.assertTrue;

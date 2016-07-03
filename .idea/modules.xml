@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ObfuscatedMessageStore.iml" filepath="$PROJECT_DIR$/ObfuscatedMessageStore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MessageStore.iml" filepath="$PROJECT_DIR$/MessageStore.iml" />
     </modules>
   </component>
 </project>

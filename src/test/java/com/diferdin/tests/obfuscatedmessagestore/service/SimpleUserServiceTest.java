@@ -13,6 +13,8 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
+import static org.mockito.Mockito.doReturn;
+
 @RunWith(MockitoJUnitRunner.class)
 public class SimpleUserServiceTest {
 
@@ -21,6 +23,9 @@ public class SimpleUserServiceTest {
 
     @Spy
     private UserDao userDao;
+
+    @Mock
+    MessageService messageService;
 
     @Before
     public void configureTest() {
@@ -50,6 +55,8 @@ public class SimpleUserServiceTest {
     public void shouldRemoveUser() {
         User jason = new User("Jason Bourne");
         userService.addUser(jason);
+
+        doReturn(true).when(messageService).removeMessagesForUser(jason.getUuid());
 
         boolean removed = userService.removeUser(jason.getUuid());
 

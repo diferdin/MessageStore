@@ -15,13 +15,13 @@ public class Rot20Obfuscator extends Obfuscator{
     public Message obfuscate(Message message) {
 
         String obfuscatedText = applyChange(message.getMessage(), standardAlphabet, rotatedAlphabet);
-        return new Message(message.getSender(), message.getReceiver(), new String(obfuscatedText));
+        return new Message(message.getSender(), message.getReceiver(), obfuscatedText);
     }
 
     public Message clarify(Message message) {
 
         String clarifiedText = applyChange(message.getMessage(), rotatedAlphabet, standardAlphabet);
-        return new Message(message.getSender(), message.getReceiver(), new String(clarifiedText));
+        return new Message(message.getSender(), message.getReceiver(), clarifiedText);
     }
 
     private String applyChange(String text, String startingAlphabet, String destinationAlphabet) {

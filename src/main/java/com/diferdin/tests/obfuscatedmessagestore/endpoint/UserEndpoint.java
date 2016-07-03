@@ -1,7 +1,6 @@
 package com.diferdin.tests.obfuscatedmessagestore.endpoint;
 
 import com.diferdin.tests.obfuscatedmessagestore.domain.User;
-import com.diferdin.tests.obfuscatedmessagestore.service.MessageService;
 import com.diferdin.tests.obfuscatedmessagestore.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
