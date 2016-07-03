@@ -13,6 +13,8 @@ public abstract class Obfuscator {
 
     public abstract Message obfuscate(Message message);
 
+    public abstract Message clarify(Message obfuscatedMessage);
+
     private int checkCharIndex(char c) {
         return standardAlphabet.indexOf(c);
     }

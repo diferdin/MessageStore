@@ -1,6 +1,7 @@
 package com.diferdin.tests.obfuscatedmessagestore.endpoint;
 
 import com.diferdin.tests.obfuscatedmessagestore.domain.User;
+import com.diferdin.tests.obfuscatedmessagestore.service.MessageService;
 import com.diferdin.tests.obfuscatedmessagestore.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,7 +48,7 @@ public class UserEndpoint {
     public ResponseEntity<String> deleteUser(@PathVariable String uuid) {
 
         if(userService.removeUser(uuid)) {
-            return new ResponseEntity<>("", HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 
         return new ResponseEntity<>("Could not delete", HttpStatus.NOT_FOUND);

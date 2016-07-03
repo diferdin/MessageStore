@@ -63,7 +63,7 @@ public class UserEndpointTest {
     }
 
     @Test
-    public void shouldReturnNoContentOnDelitingExistingUser() throws Exception {
+    public void shouldReturnNoContentOnDeletingExistingUser() throws Exception {
 
         doReturn(true).when(userService).addUser(any(User.class));
 
@@ -85,7 +85,7 @@ public class UserEndpointTest {
     }
 
     @Test
-    public void shouldReturnNotFoundOnRemovingNonExistingUser() throws Exception {
+    public void shouldReturnNotFoundOnDeletingNonExistingUser() throws Exception {
         mockMvc.perform(delete("/users/mock_uuid")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());

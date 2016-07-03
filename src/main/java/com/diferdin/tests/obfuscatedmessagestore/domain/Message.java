@@ -15,8 +15,6 @@ public class Message {
     public Message() {
     }
 
-
-
     public String getSender() {
         return sender;
     }

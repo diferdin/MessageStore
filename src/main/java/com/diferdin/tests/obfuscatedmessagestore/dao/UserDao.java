@@ -41,10 +41,18 @@ public class UserDao {
     }
 
     public int getNumberOfUsersStored() {
+        if(users == null) {
+            return 0;
+        }
         return users.size();
     }
 
     public boolean containsUser(String userId) {
+
+        if(users == null) {
+            return false;
+        }
+
         return users.stream().anyMatch(u -> u.getUuid().equals(userId));
     }
 

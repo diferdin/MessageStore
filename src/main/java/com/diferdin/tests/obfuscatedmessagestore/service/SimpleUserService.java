@@ -1,6 +1,7 @@
 package com.diferdin.tests.obfuscatedmessagestore.service;
 
 import com.diferdin.tests.obfuscatedmessagestore.dao.UserDao;
+import com.diferdin.tests.obfuscatedmessagestore.domain.Message;
 import com.diferdin.tests.obfuscatedmessagestore.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,9 +13,16 @@ public class SimpleUserService implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private MessageService messageService;
+
     @Override
     public boolean addUser(User user) {
-        return userDao.addUser(user);
+        if(!userDao.containsUser(user.getUuid())) {
+            return userDao.addUser(user);
+        }
+
+        return false;
     }
 
     @Override
@@ -33,8 +41,9 @@ public class SimpleUserService implements UserService {
     }
 
     @Override
-    public boolean removeUser(String uuid) {
-        return userDao.removeUser(uuid);
+    public boolean removeUser(String userId) {
+        messageService.removeMessagesForUser(userId);
+        return userDao.removeUser(userId);
     }
 
     @Override

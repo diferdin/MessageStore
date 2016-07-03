@@ -17,11 +17,23 @@ public class MessageDao {
         return !containsMessage(message) && messages.add(message);
     }
 
-    public List<Message> getMessagesForRecipient(String uuid) {
+    public int getNumberOfMessagesStored() {
+        if(messages == null) {
+            return 0;
+        }
+
+        return messages.size();
+    }
+
+    public List<Message> getMessagesForRecipientId(String uuid) {
         return messages.stream().filter(m -> m.getReceiver().equals(uuid)).collect(Collectors.toList());
     }
 
-    private boolean containsMessage(Message message) {
+    public boolean containsMessage(Message message) {
         return messages.stream().anyMatch(m -> m.equals(message));
+    }
+
+    public boolean removeMessagesForUser(String userId) {
+        return messages.removeIf(m -> m.getReceiver().equals(userId)) || messages.removeIf(m -> m.getSender().equals(userId));
     }
 }

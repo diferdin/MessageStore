@@ -13,17 +13,28 @@ public class Rot20Obfuscator extends Obfuscator{
     }
 
     public Message obfuscate(Message message) {
-        char[] textChars = message.getMessage().toCharArray();
-        char[] obfuscatedText = new char[textChars.length];
 
-        for(int i = 0; i < textChars.length; i++) {
-            //check letter index on standard alphabet
-            int indexOnStandardAlphabet = standardAlphabet.indexOf(textChars[i]);
-
-            //take index and check rotated alphabet
-            obfuscatedText[i] = rotatedAlphabet.charAt(indexOnStandardAlphabet);
-        }
+        String obfuscatedText = applyChange(message.getMessage(), standardAlphabet, rotatedAlphabet);
         return new Message(message.getSender(), message.getReceiver(), new String(obfuscatedText));
+    }
+
+    public Message clarify(Message message) {
+
+        String clarifiedText = applyChange(message.getMessage(), rotatedAlphabet, standardAlphabet);
+        return new Message(message.getSender(), message.getReceiver(), new String(clarifiedText));
+    }
+
+    private String applyChange(String text, String startingAlphabet, String destinationAlphabet) {
+        char[] inputChars = text.toCharArray();
+        char[] outputChars = new char[inputChars.length];
+
+        for(int i = 0; i < inputChars.length; i++) {
+            int indexOnStartingAlphabet = startingAlphabet.indexOf(inputChars[i]);
+
+            outputChars[i] = destinationAlphabet.charAt(indexOnStartingAlphabet);
+        }
+
+        return new String(outputChars);
     }
 
     private String rotateStandardAlphabet() {
