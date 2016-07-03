@@ -6,7 +6,9 @@ import java.util.UUID;
 
 @JsonFilter("userFilter")
 public class User {
+
     private String name;
+
     private UUID uuid;
 
     public User(String name) {
@@ -24,12 +26,6 @@ public class User {
 
     public String getUuid() {
         return uuid.toString();
-    }
-
-    @Override
-    public String toString() {
-
-        return  "Name: "+name+", UUID: "+uuid;
     }
 
     @Override

@@ -1,26 +1,20 @@
-package com.diferdin.tests.obfuscatedmessagestore.service.test;
+package com.diferdin.tests.obfuscatedmessagestore.service;
 
 import com.diferdin.tests.obfuscatedmessagestore.dao.UserDao;
 import com.diferdin.tests.obfuscatedmessagestore.domain.User;
-import com.diferdin.tests.obfuscatedmessagestore.service.SimpleUserService;
-import com.diferdin.tests.obfuscatedmessagestore.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.when;
-
 @RunWith(MockitoJUnitRunner.class)
-public class SimpleServiceTest {
+public class SimpleUserServiceTest {
 
     @InjectMocks
     private SimpleUserService userService;
@@ -77,8 +71,8 @@ public class SimpleServiceTest {
         List<User> users = userService.getAllUsers();
 
         assertEquals(3, users.size());
-        assertEquals(jason, users.get(0));
-        assertEquals(lara, users.get(1));
-        assertEquals(jack, users.get(2));
+        assertTrue(users.contains(jason));
+        assertTrue(users.contains(lara));
+        assertTrue(users.contains(jack));
     }
 }

@@ -28,6 +28,11 @@ public class SimpleUserService implements UserService {
     }
 
     @Override
+    public boolean containsUser(String userId) {
+        return userDao.containsUser(userId);
+    }
+
+    @Override
     public boolean removeUser(String uuid) {
         return userDao.removeUser(uuid);
     }

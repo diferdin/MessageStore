@@ -14,7 +14,7 @@ public class UserDao {
             users = new HashSet<>();
         }
 
-        return !containsUser(user.getName()) && users.add(user);
+        return !containsUser(user.getUuid()) && users.add(user);
 
     }
 
@@ -44,8 +44,8 @@ public class UserDao {
         return users.size();
     }
 
-    public boolean containsUser(String name) {
-        return users.stream().anyMatch(u -> u.getName().equals(name));
+    public boolean containsUser(String userId) {
+        return users.stream().anyMatch(u -> u.getUuid().equals(userId));
     }
 
     public List<User> getAllUsers() {

@@ -1,4 +1,4 @@
-package com.diferdin.tests.obfuscatedmessagestore.dao.test;
+package com.diferdin.tests.obfuscatedmessagestore.dao;
 
 
 import com.diferdin.tests.obfuscatedmessagestore.dao.UserDao;
@@ -37,8 +37,7 @@ public class UserDaoTest {
         assertTrue(jasonAddition);
         assertEquals(1, userDao.getNumberOfUsersStored());
 
-        User jason2 = new User("Jason Bourne");
-        boolean jasonAddition2 = userDao.addUser(jason2);
+        boolean jasonAddition2 = userDao.addUser(jason);
 
         assertFalse(jasonAddition2);
         assertEquals(1, userDao.getNumberOfUsersStored());

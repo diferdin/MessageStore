@@ -4,9 +4,6 @@ import com.diferdin.tests.obfuscatedmessagestore.domain.User;
 
 import java.util.List;
 
-/**
- * Created by antonio on 01/07/2016.
- */
 public interface UserService {
 
     boolean addUser(User user);
@@ -14,6 +11,8 @@ public interface UserService {
     User getUser(String uuid);
 
     boolean removeUser(String uuid);
+
+    boolean containsUser(String userid);
 
     List<User> getAllUsers();
 }
